@@ -4,7 +4,7 @@ import os
 import regex as re
 import io
 
-__version__ = '1.1.2'
+__version__ = '1.1.3'
 
 __all__ = [
     'from_dicts',
@@ -59,8 +59,10 @@ todo_filelink_regex = re.compile(' (http://|https://|link:)(\S*)')
 # todo_remarks_regex = re.compile(' \{([^\{\}]*)\}')        # this one does not cover necessary recursions
 todo_remarks_regex = re.compile('{((?:[^{}]|(?R))*)}')
 
-# all other information as tags
-todo_tag_regex = re.compile(' ([A-z]\S*?):(\S*)')
+# all other information as tags (ignore empty values)
+# using ([A-z]\S*):(\S*) didn't work out as empty values like in "Test: "
+# seemed to slip through at least when using regex and not re library
+todo_tag_regex = re.compile(' ([A-Za-z]\S*):([A-Za-z0-9ÄÖÜäöü_]\S*)')
 
 
 #
