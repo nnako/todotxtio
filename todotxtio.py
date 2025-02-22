@@ -31,38 +31,38 @@ __all__ = [
 
 # line prefix data
 todo_data_regex = re.compile( \
-                             '^(?:(x) )?' + \
-                             '(?:(\d{4}-\d{2}-\d{2}) )?' + \
-                             '(?:\(([A-Z])\) )?' + \
-                             '(?:(\d{4}-\d{2}-\d{2}) )?' \
+                             r'^(?:(x) )?' + \
+                             r'(?:(\d{4}-\d{2}-\d{2}) )?' + \
+                             r'(?:\(([A-Z])\) )?' + \
+                             r'(?:(\d{4}-\d{2}-\d{2}) )?' \
                              )
 
 # project and subproject names (ignore single "+" chars)
-todo_project_regex = re.compile(' \+(\w\S+)')
+todo_project_regex = re.compile(r' \+(\w\S+)')
 
 # context and subcontext names
-todo_context_regex = re.compile(' @(\S*)')
+todo_context_regex = re.compile(r' @(\S+)')
 
 # author names
-todo_authors_regex = re.compile(' \[\*(\S*)\]')
+todo_authors_regex = re.compile(r' \[\*(\S+)\]')
 
 # responsible person names
-todo_responsibles_regex = re.compile(' \[([^\+\*\s]*)\]')
+todo_responsibles_regex = re.compile(r' \[(\S+)\]')
 
 # names of regarded persons
-todo_tobeinformed_regex = re.compile(' \[\+(\S*)\]')
+todo_tobeinformed_regex = re.compile(r' \[\+(\S*)\]')
 
 # file and hyperlinks
-todo_filelink_regex = re.compile(' (http://|https://|link:)(\S*)')
+todo_filelink_regex = re.compile(r' (http://|https://|link:)(\S+)')
 
 # text block of remarks
 # todo_remarks_regex = re.compile(' \{([^\{\}]*)\}')        # this one does not cover necessary recursions
-todo_remarks_regex = re.compile('{((?:[^{}]|(?R))*)}')
+todo_remarks_regex = re.compile(r'{((?:[^{}]|(?R))*)}')
 
 # all other information as tags (ignore empty values)
 # using ([A-z]\S*):(\S*) didn't work out as empty values like in "Test: "
 # seemed to slip through at least when using regex and not re library
-todo_tag_regex = re.compile(' ([A-Za-z]\S*):([A-Za-z0-9ÄÖÜäöü_]\S*)')
+todo_tag_regex = re.compile(r' ([A-Za-z]\S*):([A-Za-z0-9ÄÖÜäöü_]\S*)')
 
 
 #
