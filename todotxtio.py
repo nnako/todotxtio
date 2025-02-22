@@ -56,7 +56,8 @@ todo_authors_regex = re.compile(r' \[\*(\S+)\]')
 # responsible person names. must be at least 1 char long. can be anything but
 # should be compliant to file system conventions as these names will be used to
 # identify task files on (platform independent) file systems.
-todo_responsibles_regex = re.compile(r' \[(\S+)\]')
+#todo_responsibles_regex = re.compile(r' \[(\S+)\]')
+todo_responsibles_regex = re.compile(r' \[([^\+\*\s]*)\]')
 
 # names of regarded persons. must be at least 1 char long. can be anything but
 # should be compliant to file system conventions as these names will be used to
