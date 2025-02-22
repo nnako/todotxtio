@@ -4,7 +4,7 @@ import os
 import regex as re
 import io
 
-__version__ = '1.1.3'
+__version__ = '1.1.4'
 
 __all__ = [
     'from_dicts',
@@ -37,19 +37,30 @@ todo_data_regex = re.compile( \
                              r'(?:(\d{4}-\d{2}-\d{2}) )?' \
                              )
 
-# project and subproject names (ignore single "+" chars)
+# project and subproject names. must at least be 2 chars long. must start with
+# an alpha char (no numbers allowed as 1st char). so, single "+" chars as well
+# as added numbers in calculations will be ignored as project and sub-project
+# names.
 todo_project_regex = re.compile(r' \+(\w\S+)')
 
-# context and subcontext names
+# context and subcontext names. must be at least 1 character long. can be
+# anything (number, string, mixed). so, single "@" chars will be ignored as
+# context names.
 todo_context_regex = re.compile(r' @(\S+)')
 
-# author names
+# author names. must be at least 1 char long. can be anything but should be
+# compliant to file system conventions as these names will be used to identify
+# task files on (platform independent) file systems.
 todo_authors_regex = re.compile(r' \[\*(\S+)\]')
 
-# responsible person names
+# responsible person names. must be at least 1 char long. can be anything but
+# should be compliant to file system conventions as these names will be used to
+# identify task files on (platform independent) file systems.
 todo_responsibles_regex = re.compile(r' \[(\S+)\]')
 
-# names of regarded persons
+# names of regarded persons. must be at least 1 char long. can be anything but
+# should be compliant to file system conventions as these names will be used to
+# identify task files on (platform independent) file systems.
 todo_tobeinformed_regex = re.compile(r' \[\+(\S*)\]')
 
 # file and hyperlinks
