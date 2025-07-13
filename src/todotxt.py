@@ -29,52 +29,59 @@ __all__ = [
 # every specific term has to be defined, as "tag" attributes hold every
 # non-list elements defined by the general "colon" syntax.
 
-# line prefix data
-todo_data_regex = re.compile( \
-                             r'^(?:(x) )?' + \
-                             r'(?:(\d{4}-\d{2}-\d{2}) )?' + \
-                             r'(?:\(([A-Z])\) )?' + \
-                             r'(?:(\d{4}-\d{2}-\d{2}) )?' \
-                             )
+try:
 
-# project and subproject names. must at least be 2 chars long. must start with
-# an alpha char (no numbers allowed as 1st char). so, single "+" chars as well
-# as added numbers in calculations will be ignored as project and sub-project
-# names.
-todo_project_regex = re.compile(r' \+(\w\S+)')
+    # line prefix data
+    todo_data_regex = re.compile( \
+                                 r'^(?:(x) )?' + \
+                                 r'(?:(\d{4}-\d{2}-\d{2}) )?' + \
+                                 r'(?:\(([A-Z])\) )?' + \
+                                 r'(?:(\d{4}-\d{2}-\d{2}) )?' \
+                                 )
 
-# context and subcontext names. must be at least 1 character long. can be
-# anything (number, string, mixed). so, single "@" chars will be ignored as
-# context names.
-todo_context_regex = re.compile(r' @(\S+)')
+    # project and subproject names. must at least be 2 chars long. must start with
+    # an alpha char (no numbers allowed as 1st char). so, single "+" chars as well
+    # as added numbers in calculations will be ignored as project and sub-project
+    # names.
+    todo_project_regex = re.compile(r' \+(\w\S+)')
 
-# author names. must be at least 1 char long. can be anything but should be
-# compliant to file system conventions as these names will be used to identify
-# task files on (platform independent) file systems.
-todo_authors_regex = re.compile(r' \[\*(\S+)\]')
+    # context and subcontext names. must be at least 1 character long. can be
+    # anything (number, string, mixed). so, single "@" chars will be ignored as
+    # context names.
+    todo_context_regex = re.compile(r' @(\S+)')
 
-# responsible person names. must be at least 1 char long. can be anything but
-# should be compliant to file system conventions as these names will be used to
-# identify task files on (platform independent) file systems.
-#todo_responsibles_regex = re.compile(r' \[(\S+)\]')
-todo_responsibles_regex = re.compile(r' \[([^\+\*\s]*)\]')
+    # author names. must be at least 1 char long. can be anything but should be
+    # compliant to file system conventions as these names will be used to identify
+    # task files on (platform independent) file systems.
+    todo_authors_regex = re.compile(r' \[\*(\S+)\]')
 
-# names of regarded persons. must be at least 1 char long. can be anything but
-# should be compliant to file system conventions as these names will be used to
-# identify task files on (platform independent) file systems.
-todo_tobeinformed_regex = re.compile(r' \[\+(\S*)\]')
+    # responsible person names. must be at least 1 char long. can be anything but
+    # should be compliant to file system conventions as these names will be used to
+    # identify task files on (platform independent) file systems.
+    #todo_responsibles_regex = re.compile(r' \[(\S+)\]')
+    todo_responsibles_regex = re.compile(r' \[([^\+\*\s]*)\]')
 
-# file and hyperlinks
-todo_filelink_regex = re.compile(r' (http://|https://|link:)(\S+)')
+    # names of regarded persons. must be at least 1 char long. can be anything but
+    # should be compliant to file system conventions as these names will be used to
+    # identify task files on (platform independent) file systems.
+    todo_tobeinformed_regex = re.compile(r' \[\+(\S*)\]')
 
-# text block of remarks
-# todo_remarks_regex = re.compile(' \{([^\{\}]*)\}')        # this one does not cover necessary recursions
-todo_remarks_regex = re.compile(r'{((?:[^{}]|(?R))*)}')
+    # file and hyperlinks
+    todo_filelink_regex = re.compile(r' (http://|https://|link:)(\S+)')
 
-# all other information as tags (ignore empty values)
-# using ([A-z]\S*):(\S*) didn't work out as empty values like in "Test: "
-# seemed to slip through at least when using regex and not re library
-todo_tag_regex = re.compile(r' ([A-Za-z]\S*):([A-Za-z0-9ÄÖÜäöü_]\S*)')
+    # text block of remarks
+    # todo_remarks_regex = re.compile(' \{([^\{\}]*)\}')        # this one does not cover necessary recursions
+    todo_remarks_regex = re.compile(r'{((?:[^{}]|(?R))*)}')
+
+    # all other information as tags (ignore empty values)
+    # using ([A-z]\S*):(\S*) didn't work out as empty values like in "Test: "
+    # seemed to slip through at least when using regex and not re library
+    todo_tag_regex = re.compile(r' ([A-Za-z]\S*):([A-Za-z0-9ÄÖÜäöü_]\S*)')
+
+except:
+    pass
+
+
 
 
 #
