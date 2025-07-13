@@ -657,7 +657,13 @@ def serialize(todo):
     # append text
     #
 
-    ret.append(todo.text)
+    # integrate possibility to use backslash as newline character and remove
+    # space character (sanitize) before newlines.
+    _text = todo.text.replace("\n", "\\")
+    _text = _text.replace(" \\", "\\")
+
+    # now use sanitized specification
+    ret.append(_text)
 
 
 
