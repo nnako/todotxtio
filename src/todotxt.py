@@ -90,7 +90,7 @@ except:
 
 def from_dicts(todos):
     """
-    Convert a list of todo dicts to a list of :class:`todotxtio.Todo` objects.
+    Convert a list of todo dicts to a list of :class:`todotxt.Todo` objects.
 
     :param list todos: A list of todo dicts
     :rtype: list
@@ -322,9 +322,9 @@ def from_string(string):
 
 def to_dicts(todos):
     """
-    Convert a list of :class:`todotxtio.Todo` objects to a list of todo dict.
+    Convert a list of :class:`todotxt.Todo` objects to a list of todo dict.
 
-    :param list todos: List of :class:`todotxtio.Todo` objects
+    :param list todos: List of :class:`todotxt.Todo` objects
     :rtype: list
     """
     return [todo.to_dict() for todo in todos]
@@ -335,7 +335,7 @@ def to_stream(stream, todos, close=True):
     Write a list of todos to an already-opened stream.
 
     :param file stream: A file-like object
-    :param list todos: List of :class:`todotxtio.Todo` objects
+    :param list todos: List of :class:`todotxt.Todo` objects
     :param bool close: Whetever to close the stream or not after all operation are finised
     :rtype: None
     """
@@ -350,7 +350,7 @@ def to_file(file_path, todos, encoding='utf-8'):
     Write a list of todos to a file.
 
     :param str file_path: Path to the file
-    :param list todos: List of :class:`todotxtio.Todo` objects
+    :param list todos: List of :class:`todotxt.Todo` objects
     :param str encoding: The encoding of the file to open
     :rtype: None
     """
@@ -362,7 +362,7 @@ def to_string(todos):
     """
     Convert a list of todos to a string.
 
-    :param list todos: List of :class:`todotxtio.Todo` objects
+    :param list todos: List of :class:`todotxt.Todo` objects
     :rtype: str
     """
     return '\n'.join([serialize(todo) for todo in todos])
@@ -553,8 +553,8 @@ def search(todos,
     """
     Return a list of todos that matches the provided filters.
 
-    It takes the exact same parameters as the :class:`todotxtio.Todo`
-    object constructor, and return a list of :class:`todotxtio.Todo` objects as well.
+    It takes the exact same parameters as the :class:`todotxt.Todo`
+    object constructor, and return a list of :class:`todotxt.Todo` objects as well.
     All criteria defaults to ``None`` which means that the criteria is ignored.
 
     A todo will be returned in the results list if all of the criteria matches. From
