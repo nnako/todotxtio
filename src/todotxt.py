@@ -1,10 +1,30 @@
 # -*- coding: utf-8 -*-
 
+
+
+
+#
+# imports
+#
+
+# built-in
 import os
-import regex as re
 import io
 
-__version__ = '1.1.4'
+# non-built-in
+try:
+    import regex as re
+except:
+    pass
+
+
+
+
+#
+# current version
+#
+
+__version__ = '1.1.4*'
 
 __all__ = [
     'from_dicts',
@@ -18,6 +38,8 @@ __all__ = [
     'Todo',
     'search'
 ]
+
+
 
 
 #
